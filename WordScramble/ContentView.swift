@@ -40,12 +40,12 @@ struct ContentView: View {
                             }
                         }
                     }
-                }
-                Section {
-                    HStack {
-                        Text("Score is:")
-                        Spacer()
-                        Image(systemName: "\(score).circle.fill")
+                    Section {
+                        HStack {
+                            Text("Score is:")
+                            Spacer()
+                            Image(systemName: "\(score).circle.fill").foregroundColor(.blue)
+                        }
                     }
                 }
             }
