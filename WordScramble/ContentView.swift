@@ -51,7 +51,10 @@ struct ContentView: View {
             }
             .navigationTitle(rootWord).navigationBarTitleDisplayMode(.large)
             .onSubmit(addWord)
-            .onAppear(perform: startGame)
+            .onAppear {
+                startGame()
+                inputFocused = true
+            }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("New word", action: resetRootWord)
@@ -150,6 +153,10 @@ struct ContentView: View {
     }
     
     func isReal(word: String) -> Bool {
+        if word == "" {
+            return false
+        }
+        
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let mispelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
