@@ -72,7 +72,7 @@ struct ContentView: View {
             } message: {
                 Text(alertMessage)
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     func addWord() {
