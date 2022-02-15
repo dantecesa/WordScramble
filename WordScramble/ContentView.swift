@@ -38,6 +38,9 @@ struct ContentView: View {
                                 Spacer()
                                 Image(systemName: "\(word.count).circle")
                             }
+                            .accessibilityElement()
+                            .accessibilityLabel(word)
+                            .accessibilityHint("\(word.count) letters")
                         }
                     }
                     Section {
@@ -46,6 +49,8 @@ struct ContentView: View {
                             Spacer()
                             Image(systemName: "\(score).circle.fill").foregroundColor(.blue)
                         }
+                        .accessibilityElement()
+                        .accessibilityLabel("Score is \(score)")
                     }
                 }
             }
